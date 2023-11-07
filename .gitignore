@@ -18,6 +18,7 @@ node_modules/
 
 # Env files
 *.env
+.env.local
 
 # Package manager
 npm-debug.log*

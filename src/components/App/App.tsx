@@ -1,12 +1,15 @@
 import React from "react";
 import "./App.scss";
+import { SheetTitleType } from "../../sevices/googleSheets/interfaces";
+import { useGoogleSheetsData } from "./hooks/useGoogleSheetsData";
 
 export const App: React.FC = () => {
-  const yourApiKey = process.env.REACT_APP_YOUR_API_KEY;
+  const googleSheetsData = useGoogleSheetsData(SheetTitleType.Street);
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>Learn React {yourApiKey}</p>
+        <p>Learn React {googleSheetsData?.sig}</p>
       </header>
     </div>
   );

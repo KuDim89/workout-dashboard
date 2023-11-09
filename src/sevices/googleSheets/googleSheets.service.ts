@@ -5,24 +5,21 @@ import { type ISheetData } from "./interfaces";
 class GoogleSheetsService {
   private readonly baseUrl = `https://docs.google.com/spreadsheets/d/${process.env.REACT_APP_SHEET_ID_KEY}/gviz/tq?sheet=`;
 
-  async getDataFromGoogleSheet(
-    sheetTitle: string,
-  ): Promise<ISheetData | undefined> {
+  async getDataFromGoogleSheet(sheetTitle: string) {
     const formattedTitle = _.startCase(_.camelCase(sheetTitle)).trim();
 
     try {
-      const response = await axios.get(`${this.baseUrl}${formattedTitle}`);
+      const response = await axios.get<string>(
+        `${this.baseUrl}${formattedTitle}`,
+      );
       if (response.status === 200) {
-        return JSON.parse(
+        const formattedData: ISheetData = JSON.parse(
           response.data.substring(47).slice(0, -2),
-        ) as ISheetData;
+        );
+        return formattedData.table.rows;
       }
     } catch (error) {
-      console.error(
-        `Error fetching Google Sheet ${formattedTitle} data:`,
-        error,
-      );
-      throw error;
+      return error;
     }
   }
 }

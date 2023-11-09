@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.scss";
-import { SheetTitleType } from "../../sevices/googleSheets/interfaces";
-import { useGoogleSheetsData } from "./hooks/useGoogleSheetsData";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { fetchStreet } from "../../store/reducers/ActionCreators";
 
 export const App: React.FC = () => {
-  const googleSheetsData = useGoogleSheetsData(SheetTitleType.Street);
+  const dispatch = useAppDispatch();
+  const { streetData, isLoading, error } = useAppSelector(
+    (state) => state.streetReducer,
+  );
+
+  useEffect(() => {
+    void dispatch(fetchStreet());
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>Learn React {googleSheetsData?.sig}</p>
+        <p>Learn React</p>
+        {isLoading && <p>Loading...</p>}
+        {error !== "" && <p>{error}</p>}
+        {JSON.stringify(streetData, null, 2)}
       </header>
     </div>
   );

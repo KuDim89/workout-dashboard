@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import "./App.scss";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { fetchStreet } from "../../store/reducers/ActionCreators";
+import { fetchHome } from "../../store/actionCreators/Home";
 
 export const App: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { streetData, isLoading, error } = useAppSelector(
-    (state) => state.streetReducer,
+  const { homeData, isLoading, error } = useAppSelector(
+    (state) => state.homeReducer,
   );
 
   useEffect(() => {
-    void dispatch(fetchStreet());
+    void dispatch(fetchHome());
   }, []);
 
   return (
@@ -19,7 +19,7 @@ export const App: React.FC = () => {
         <p>Learn React</p>
         {isLoading && <p>Loading...</p>}
         {error !== "" && <p>{error}</p>}
-        {JSON.stringify(streetData, null, 2)}
+        {JSON.stringify(homeData, null, 2)}
       </header>
     </div>
   );

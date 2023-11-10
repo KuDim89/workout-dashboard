@@ -32,6 +32,4 @@ export const streetSlice = createSlice({
   },
 });
 
-// export const { streetFetching, streetFetchingSuccess, streetFetchingError } = streetSlice.actions;
-
 export default streetSlice.reducer;

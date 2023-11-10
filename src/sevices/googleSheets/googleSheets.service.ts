@@ -1,11 +1,12 @@
 import axios from "axios";
 import _ from "lodash";
-import { type ISheetData } from "./interfaces";
+import { type IGoogleSheet } from "../../models/IGoogleSheet";
+import { type SheetTitleType } from "./interfaces";
 
 class GoogleSheetsService {
   private readonly baseUrl = `https://docs.google.com/spreadsheets/d/${process.env.REACT_APP_SHEET_ID_KEY}/gviz/tq?sheet=`;
 
-  async getDataFromGoogleSheet(sheetTitle: string) {
+  async getDataFromGoogleSheet(sheetTitle: SheetTitleType) {
     const formattedTitle = _.startCase(_.camelCase(sheetTitle)).trim();
 
     try {
@@ -13,7 +14,7 @@ class GoogleSheetsService {
         `${this.baseUrl}${formattedTitle}`,
       );
       if (response.status === 200) {
-        const formattedData: ISheetData = JSON.parse(
+        const formattedData: IGoogleSheet = JSON.parse(
           response.data.substring(47).slice(0, -2),
         );
         return formattedData.table.rows;

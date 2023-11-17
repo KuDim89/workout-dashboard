@@ -1,8 +1,10 @@
-import { type AppDispatch } from "../store";
-import { homeSlice } from "../reducers/HomeSlice";
+import { type AxiosError } from "axios";
+
+import { type AppDispatch } from "../index";
+import { homeSlice } from "../slices/HomeSlice";
 import GoogleSheetsService from "../../sevices/googleSheets/googleSheets.service";
 import { type ITableRow } from "../../models/IGoogleSheet";
-import { type AxiosError } from "axios";
+
 import { SheetTitleType } from "../../sevices/googleSheets/interfaces";
 
 export const fetchHome = () => async (dispatch: AppDispatch) => {

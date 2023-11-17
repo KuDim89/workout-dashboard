@@ -6,6 +6,10 @@
       "dom.iterable",
       "esnext"
     ],
+    "paths": {
+      "@mui/material/*": ["node_modules/@mui/material/*"],
+      "@mui/system/*": ["node_modules/@mui/system/*"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -21,7 +25,7 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
-  ],
-
+    "src",
+    "src/declaration.d.ts"
+  ]
 }

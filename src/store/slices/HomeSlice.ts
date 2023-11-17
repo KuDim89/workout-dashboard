@@ -1,5 +1,5 @@
-import { type ITableRow } from "../../models/IGoogleSheet";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { type ITableRow } from "../../models/IGoogleSheet";
 
 interface HomeState {
   homeData: ITableRow[];

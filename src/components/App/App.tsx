@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
-import "./App.scss";
 // import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 // import { fetchHome } from "../../store/actionCreators/Home";
 import { ColorModeContext } from "../../theme";
 import { ThemeProvider } from "@mui/material";
-import TopBar from "../TopBar/TopBar";
+import { TopBar } from "../TopBar";
 import { useMode } from "../../theme/hooks/useMode";
 
 export const App: React.FC = () => {
@@ -19,15 +18,7 @@ export const App: React.FC = () => {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <div className="App">
-          <TopBar />
-          <header className="App-header">
-            <p>Learn React</p>
-            {/* {Boolean(isLoading) && <p>Loading...</p>}
-            {error !== "" && <p>{error}</p>}
-            {JSON.stringify(homeData, null, 2)} */}
-          </header>
-        </div>
+        <TopBar />
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

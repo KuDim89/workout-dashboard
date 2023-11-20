@@ -9,9 +9,18 @@ export const useStyles = makeStyles((theme: Theme) => {
   return {
     root: {
       position: "static",
-      background: `${colors.primary.DEFAULT} !important`,
+      background: `${colors.primary.DEFAULT}`,
+      color: theme.palette.getContrastText(theme.palette.primary.main),
       borderBottom: `1px solid ${colors.borderColor}`,
       boxShadow: "none !important",
+    },
+    icon: {
+      marginLeft: "10px !important",
+    },
+    search: {
+      "&:hover": {
+        backgroundColor: "transparent !important",
+      },
     },
   };
 });

@@ -4,14 +4,11 @@ export const darkModeColors: ICustomColors = {
   primary: {
     DEFAULT: "#000000",
     100: "#000000",
-    200: "#000000",
-    300: "#000000",
-    400: "#000000",
-    500: "#0F0E0E",
-    600: "#232323",
-    700: "#3D3D3D",
-    800: "#525252",
-    900: "#5C5C5C",
+    200: "#0F0E0E",
+    300: "#232323",
+    400: "#3D3D3D",
+    500: "#525252",
+    600: "#5C5C5C",
   },
   secondary: {
     DEFAULT: "#7C7C7C",
@@ -73,8 +70,13 @@ export const darkModeColors: ICustomColors = {
 
 export const lightModeColors: ICustomColors = {
   primary: {
-    DEFAULT: "#FFFFFF",
-    500: "#F7F7F7",
+    DEFAULT: "#ffffff",
+    100: "#5C5C5C",
+    200: "#525252",
+    300: "#3D3D3D",
+    400: "#232323",
+    500: "#0F0E0E",
+    600: "#000000",
   },
   secondary: {
     DEFAULT: "#7C7C7C",

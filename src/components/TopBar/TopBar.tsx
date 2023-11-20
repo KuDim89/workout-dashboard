@@ -2,16 +2,18 @@ import React, { useContext } from "react";
 import { Box, Grid, IconButton, InputBase, useTheme } from "@mui/material";
 import { ColorModeContext, tokens } from "../../theme";
 import {
-  LightMode,
   DarkMode,
+  LightMode,
   NotificationsNone,
   Search,
 } from "@mui/icons-material";
 import { useStyles } from "./styles";
+import { type ThemeMode } from "../../theme/interfaces";
 
-const TopBar = () => {
+export const TopBar = () => {
   const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+
+  const colors = tokens(theme.palette.mode as ThemeMode);
   const classes = useStyles();
 
   // todo: should change type for colorMode variable
@@ -26,48 +28,37 @@ const TopBar = () => {
         display: "flex",
         justifyContent: "space-between",
         px: "32px",
-        py: "24px",
+        py: "10px",
       }}
     >
       <Grid>Welcome, Dmytro!</Grid>
       <Box display="flex">
-        <Grid
-          onClick={colorMode.toggleColorMode}
-          sx={{
-            px: "37px",
-          }}
-        >
-          <IconButton
-            sx={{
-              mr: "45px",
-            }}
-          >
-            {theme.palette.mode === "dark" ? <DarkMode /> : <LightMode />}
-          </IconButton>
-        </Grid>
         <Box
           sx={{
-            px: "37px",
-            borderRight: `1px solid ${colors.grey.DEFAULT}`,
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          <IconButton>
-            <NotificationsNone />
-          </IconButton>
+          <Grid onClick={colorMode.toggleColorMode}>
+            <IconButton className={classes.icon}>
+              {theme.palette.mode === "dark" ? <DarkMode /> : <LightMode />}
+            </IconButton>
+          </Grid>
+          <Grid>
+            <IconButton className={classes.icon}>
+              <NotificationsNone />
+            </IconButton>
+          </Grid>
         </Box>
         <Grid
           sx={{
             display: "flex",
-            backgroundColor: `${colors.primary[600]}`,
-            borderRadius: "8px",
+            border: `1px solid ${colors.grey.DEFAULT}`,
+            borderRadius: "30px",
             ml: "28px",
           }}
         >
-          <IconButton
-            className={
-              classes.root
-            } /* sx={{ "&:hover": { backgroundColor: "transparent" } }} */
-          >
+          <IconButton className={classes.search}>
             <Search />
           </IconButton>
           <InputBase sx={{ py: "12px", px: "18px" }} placeholder="Search" />
@@ -76,5 +67,3 @@ const TopBar = () => {
     </Box>
   );
 };
-
-export default TopBar;

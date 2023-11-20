@@ -40,7 +40,7 @@ export const themeSettings = (mode: ThemeMode) => {
         fontSize: 18,
         fontWeight: 600,
       },
-      p: {
+      body1: {
         fontFamily: ["Poppins", "sans-serif"].join(","),
         fontSize: 14,
         fontWeight: 500,

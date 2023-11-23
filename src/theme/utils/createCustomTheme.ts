@@ -1,18 +1,14 @@
-import { type ICustomColors, ThemeMode } from "../interfaces";
+import { type ICustomColors, type ThemeMode } from '../interfaces';
 
-export const createCustomTheme = (mode: ThemeMode, colors: ICustomColors) => {
-  const isDarkTheme = mode === ThemeMode.Dark;
-
-  return {
-    primary: {
-      main: isDarkTheme ? colors.black.DEFAULT : colors.white.DEFAULT,
-    },
-    secondary: {
-      main: colors.grey.DEFAULT,
-    },
-    neutral: {
-      dark: colors.black[500],
-      light: colors.white[100],
-    },
-  };
-};
+export const createCustomTheme = (mode: ThemeMode, colors: ICustomColors) => ({
+  primary: {
+    main: colors.orange.DEFAULT,
+  },
+  secondary: {
+    main: colors.yellow.DEFAULT,
+  },
+  neutral: {
+    dark: colors.black[500],
+    light: colors.white[100],
+  },
+});

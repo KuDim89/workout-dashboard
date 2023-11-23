@@ -1,10 +1,10 @@
 export enum ThemeMode {
-  Light = "light",
-  Dark = "dark",
+  Light = 'light',
+  Dark = 'dark',
 }
 
 export enum LocalStorageKeys {
-  ThemeMode = "themeMode",
+  ThemeMode = 'themeMode',
 }
 
 interface ColorShades {
@@ -30,5 +30,6 @@ export interface ICustomColors {
   yellow: ColorShades;
   black: ColorShades;
   white: ColorShades;
+  contrast: ColorShades;
   borderColor: string;
 }

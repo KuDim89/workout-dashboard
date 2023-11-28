@@ -27,7 +27,7 @@ export interface ICustomColors {
   secondary: ColorShades;
   grey: ColorShades;
   orange: ColorShades;
-  yellow: ColorShades;
+  blue: ColorShades;
   black: ColorShades;
   white: ColorShades;
   contrast: ColorShades;

@@ -5,7 +5,7 @@ export const createCustomTheme = (mode: ThemeMode, colors: ICustomColors) => ({
     main: colors.orange.DEFAULT,
   },
   secondary: {
-    main: colors.yellow.DEFAULT,
+    main: colors.blue.DEFAULT,
   },
   neutral: {
     dark: colors.black[500],

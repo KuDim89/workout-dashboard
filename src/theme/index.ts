@@ -13,6 +13,7 @@ export const getColors = (mode: ThemeMode) => ({
 });
 
 export const themeSettings = (mode: ThemeMode) => {
+  const isDarkMode = mode === ThemeMode.Dark;
   const colors = getColors(mode);
 
   return {
@@ -60,8 +61,14 @@ export const themeSettings = (mode: ThemeMode) => {
             },
             input: {
               ':-webkit-autofill': {
-                WebkitBoxShadow: `0 0 0 1000px ${colors.grey[400]} inset`,
+                WebkitBoxShadow: `0 0 0 1000px ${
+                  isDarkMode ? colors.grey.DEFAULT : colors.white[200]
+                } inset`,
+                borderRadius: 0,
               },
+            },
+            '.MuiSvgIcon-root': {
+              color: colors.orange.DEFAULT,
             },
           },
         },

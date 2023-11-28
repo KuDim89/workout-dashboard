@@ -23,6 +23,11 @@ export const useStyles = makeStyles((theme: Theme) => {
         isDarkMode ? 0.527 : 0
       }),rgba(0, 0, 0, ${isDarkMode ? 0.8 : 0})) , url(${backgroundImage})`,
     },
+    logo: {
+      width: 200,
+      color: theme.palette.primary.main,
+      marginBottom: theme.spacing(3),
+    },
     form: {
       display: 'flex',
       justifyContent: 'center',
@@ -32,7 +37,7 @@ export const useStyles = makeStyles((theme: Theme) => {
       margin: 'auto',
       padding: theme.spacing(5),
       borderRadius: 20,
-      boxShadow: `5px 5px 10px ${colors.grey[700]}`,
+      boxShadow: `5px 5px 10px ${colors.grey[600]}`,
       backgroundColor: `${colors.contrast.DEFAULT}`,
     },
   };

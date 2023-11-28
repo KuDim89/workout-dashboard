@@ -29,5 +29,9 @@ export const useStyles = makeStyles((theme: Theme) => {
       color: theme.palette.primary.main,
       cursor: 'pointer',
     },
+    inputWrapper: {
+      display: 'flex',
+      gap: theme.spacing(2),
+    },
   };
 });

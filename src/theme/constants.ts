@@ -20,9 +20,7 @@ export const darkModeColors: ICustomColors = {
     200: '#666666',
     300: '#525252',
     400: '#3D3D3D', // used
-    500: '#292929',
-    600: '#0D0D0D',
-    700: '#000000',
+    500: '#0D0D0D', // used
   },
   orange: {
     DEFAULT: '#F26627',
@@ -38,19 +36,15 @@ export const darkModeColors: ICustomColors = {
     900: '#351303',
     950: '#1B0902',
   },
-  yellow: {
-    DEFAULT: '#FFC815',
-    50: '#FFF3CD',
-    100: '#FFEEB8',
-    200: '#FFE58F',
-    300: '#FFDB67',
-    400: '#FFD23E',
-    500: '#FFC815',
-    600: '#DCA800',
-    700: '#A47D00',
-    800: '#6C5200',
-    900: '#342700',
-    950: '#181200',
+  blue: {
+    DEFAULT: '#081F40',
+    50: '#1D6EE3',
+    100: '#1A65D1',
+    200: '#1654AD',
+    300: '#114289',
+    400: '#0D3164',
+    500: '#081F40',
+    600: '#02070E',
   },
   black: {
     DEFAULT: '#000000',
@@ -93,7 +87,7 @@ export const lightModeColors: ICustomColors = {
     300: '#3D3D3D',
     400: '#858585', // used
     500: '#666666',
-    600: '#7B7B7B',
+    600: '#7B7B7B', // used
   },
   orange: {
     DEFAULT: '#F26627',
@@ -109,19 +103,15 @@ export const lightModeColors: ICustomColors = {
     900: '#FBD3C1',
     950: '#FCE1D4',
   },
-  yellow: {
-    DEFAULT: '#FFC815',
-    50: '#181200',
-    100: '#342700',
-    200: '#6C5200',
-    300: '#A47D00',
-    400: '#DCA800',
-    500: '#FFC815',
-    600: '#FFD23E',
-    700: '#FFDB67',
-    800: '#FFE58F',
-    900: '#FFEEB8',
-    950: '#FFF3CD',
+  blue: {
+    DEFAULT: '#081F40',
+    50: '#02070E',
+    100: '#081F40',
+    200: '#0D3164',
+    300: '#114289',
+    400: '#1654AD',
+    500: '#1A65D1',
+    600: '#1D6EE3',
   },
   black: {
     DEFAULT: '#000000',

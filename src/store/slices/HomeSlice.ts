@@ -1,5 +1,5 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { type ITableRow } from "../../models/IGoogleSheet";
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { type ITableRow } from '../../models/IGoogleSheet';
 
 interface HomeState {
   homeData: ITableRow[];
@@ -10,22 +10,25 @@ interface HomeState {
 const initialState: HomeState = {
   homeData: [],
   isLoading: false,
-  error: "",
+  error: '',
 };
 
 export const homeSlice = createSlice({
-  name: "home",
+  name: 'home',
   initialState,
   reducers: {
-    homeFetching: (state) => {
+    homeFetching: (state: HomeState) => {
       state.isLoading = true;
     },
-    homeFetchingSuccess: (state, action: PayloadAction<ITableRow[]>) => {
+    homeFetchingSuccess: (
+      state: HomeState,
+      action: PayloadAction<ITableRow[]>,
+    ) => {
       state.isLoading = false;
-      state.error = "";
+      state.error = '';
       state.homeData = action.payload;
     },
-    homeFetchingError: (state, action: PayloadAction<string>) => {
+    homeFetchingError: (state: HomeState, action: PayloadAction<string>) => {
       state.isLoading = false;
       state.error = action.payload;
     },

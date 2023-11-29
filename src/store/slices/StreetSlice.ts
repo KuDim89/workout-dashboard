@@ -1,5 +1,5 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { ITableRow } from "../../models/IGoogleSheet";
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { ITableRow } from '../../models/IGoogleSheet';
 
 interface StreetState {
   streetData: ITableRow[];
@@ -10,22 +10,28 @@ interface StreetState {
 const initialState: StreetState = {
   streetData: [],
   isLoading: false,
-  error: "",
+  error: '',
 };
 
 export const streetSlice = createSlice({
-  name: "street",
+  name: 'street',
   initialState,
   reducers: {
-    streetFetching: (state) => {
+    streetFetching: (state: StreetState) => {
       state.isLoading = true;
     },
-    streetFetchingSuccess: (state, action: PayloadAction<ITableRow[]>) => {
+    streetFetchingSuccess: (
+      state: StreetState,
+      action: PayloadAction<ITableRow[]>,
+    ) => {
       state.isLoading = false;
-      state.error = "";
+      state.error = '';
       state.streetData = action.payload;
     },
-    streetFetchingError: (state, action: PayloadAction<string>) => {
+    streetFetchingError: (
+      state: StreetState,
+      action: PayloadAction<string>,
+    ) => {
       state.isLoading = false;
       state.error = action.payload;
     },

@@ -7,21 +7,19 @@ import {
   Search,
 } from '@mui/icons-material';
 
+import { useUserCredentials } from '../../hooks/redux';
 import { ColorModeContext, getColors } from '../../theme';
+import { type ColorModeType, ThemeMode } from '../../theme/interfaces';
 import { useStyles } from './styles';
-import { type ThemeMode } from '../../theme/interfaces';
 
 export const TopBar = () => {
   const theme = useTheme();
-
+  const classes = useStyles(theme);
   const colors = getColors(theme.palette.mode as ThemeMode);
-  const classes = useStyles();
+  const colorMode: ColorModeType = useContext(ColorModeContext);
+  const userData = useUserCredentials();
+  const userGreeting = `Welcome, ${userData.email?.split('@')[0]}!`;
 
-  // todo: should change type for colorMode variable
-  const colorMode: any = useContext(ColorModeContext);
-
-  // todo: should add dynamic user name for greeting section
-  // todo: should use enum for mode
   return (
     <Box
       className={classes.root}
@@ -32,7 +30,10 @@ export const TopBar = () => {
         py: '10px',
       }}
     >
-      <Grid>Welcome, Dmytro!</Grid>
+      <Grid>
+        <>{userGreeting}</>
+        <p>123</p>
+      </Grid>
       <Box display="flex">
         <Box
           sx={{
@@ -42,7 +43,11 @@ export const TopBar = () => {
         >
           <Grid onClick={colorMode.toggleColorMode}>
             <IconButton className={classes.icon}>
-              {theme.palette.mode === 'dark' ? <DarkMode /> : <LightMode />}
+              {theme.palette.mode === ThemeMode.Dark ? (
+                <LightMode />
+              ) : (
+                <DarkMode />
+              )}
             </IconButton>
           </Grid>
           <Grid>

@@ -1,8 +1,8 @@
 import { makeStyles } from '@mui/styles';
 import { type Theme } from '@mui/material/styles';
 
-import { getColors } from '../../theme';
-import { type ThemeMode } from '../../theme/interfaces';
+import { getColors } from '../../../theme';
+import { type ThemeMode } from '../../../theme/interfaces';
 
 export const useStyles = makeStyles((theme: Theme) => {
   const colors = getColors(theme.palette.mode as ThemeMode);
@@ -13,6 +13,12 @@ export const useStyles = makeStyles((theme: Theme) => {
       paddingBottom: theme.spacing(2),
       textAlign: 'center',
       textTransform: 'uppercase',
+    },
+    form: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     button: {
       textTransform: 'capitalize',
@@ -28,6 +34,7 @@ export const useStyles = makeStyles((theme: Theme) => {
       margin: `0 ${theme.spacing(2)}`,
       color: theme.palette.primary.main,
       cursor: 'pointer',
+      textDecoration: 'none',
     },
     inputWrapper: {
       display: 'flex',

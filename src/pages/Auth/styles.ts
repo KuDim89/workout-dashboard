@@ -1,7 +1,7 @@
 import { makeStyles } from '@mui/styles';
 import { type Theme } from '@mui/material/styles';
-import backgroundImage from '../../assets/image/pull-up.jpg';
 
+import backgroundImage from '../../assets/image/pull-up.jpg';
 import { getColors } from '../../theme';
 import { ThemeMode } from '../../theme/interfaces';
 
@@ -28,17 +28,32 @@ export const useStyles = makeStyles((theme: Theme) => {
       color: theme.palette.primary.main,
       marginBottom: theme.spacing(3),
     },
-    form: {
+    title: {
+      color: colors.grey[100],
+      paddingBottom: theme.spacing(2),
+      textAlign: 'center',
+      textTransform: 'uppercase',
+    },
+    formWrapper: {
       display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
       flexDirection: 'column',
+      alignItems: 'center',
       maxWidth: 640,
-      margin: 'auto',
       padding: theme.spacing(5),
       borderRadius: 20,
-      boxShadow: `5px 5px 10px ${colors.grey[600]}`,
+      boxShadow: `5px 5px 10px ${colors.grey[500]}`,
       backgroundColor: `${colors.contrast.DEFAULT}`,
+    },
+    text: {
+      marginTop: `${theme.spacing(3)} !important`,
+      color: colors.grey[100],
+      textAlign: 'center',
+    },
+    link: {
+      margin: `0 ${theme.spacing(2)}`,
+      color: theme.palette.primary.main,
+      cursor: 'pointer',
+      textDecoration: 'none',
     },
   };
 });

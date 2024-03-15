@@ -1,15 +1,21 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import streetReducer from "./slices/StreetSlice";
-import homeReducer from "./slices/HomeSlice";
+import { userSlice } from './slices/user';
+import { streetSlice } from './slices/street';
+import { homeSlice } from './slices/home';
 
-const store = configureStore({
-  reducer: {
-    street: streetReducer,
-    home: homeReducer,
-  },
+const rootReducer = combineReducers({
+  user: userSlice,
+  street: streetSlice,
+  home: homeSlice,
 });
 
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
-export default store;
+export const setupStore = () => {
+  return configureStore({
+    reducer: rootReducer,
+  });
+};
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore['dispatch'];

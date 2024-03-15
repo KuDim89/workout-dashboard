@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme: Theme) => {
     root: {
       position: 'static',
       background: `${colors.primary.DEFAULT}`,
-      color: theme.palette.getContrastText(colors.white.DEFAULT),
+      color: `${colors.grey[300]}`,
       borderBottom: `1px solid ${colors.borderColor}`,
       boxShadow: 'none !important',
     },

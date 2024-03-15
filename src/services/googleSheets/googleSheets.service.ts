@@ -1,7 +1,7 @@
-import axios from "axios";
-import _ from "lodash";
-import { type IGoogleSheet } from "../../models/IGoogleSheet";
-import { type SheetTitleType } from "./interfaces";
+import axios from 'axios';
+import _ from 'lodash';
+import { type IGoogleSheet } from '../../models/IGoogleSheet';
+import { type SheetTitleType } from './constants';
 
 class GoogleSheetsService {
   private readonly baseUrl = `https://docs.google.com/spreadsheets/d/${process.env.REACT_APP_SHEET_ID_KEY}/gviz/tq?sheet=`;
@@ -19,8 +19,8 @@ class GoogleSheetsService {
         );
         return formattedData.table.rows;
       }
-    } catch (error) {
-      return error;
+    } catch (e) {
+      return e;
     }
   }
 }

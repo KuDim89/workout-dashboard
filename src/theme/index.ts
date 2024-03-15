@@ -2,9 +2,9 @@ import { createContext } from 'react';
 
 import { darkModeColors, lightModeColors } from './constants';
 import { createCustomTheme } from './utils/createCustomTheme';
-import { ThemeMode } from './interfaces';
+import { type ColorModeType, ThemeMode } from './interfaces';
 
-export const ColorModeContext = createContext({
+export const ColorModeContext = createContext<ColorModeType>({
   toggleColorMode: () => {},
 });
 
@@ -68,7 +68,7 @@ export const themeSettings = (mode: ThemeMode) => {
               },
             },
             '.MuiSvgIcon-root': {
-              color: colors.orange.DEFAULT,
+              color: colors.grey[200],
             },
           },
         },

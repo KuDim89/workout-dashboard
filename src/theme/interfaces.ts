@@ -7,6 +7,10 @@ export enum LocalStorageKeys {
   ThemeMode = 'themeMode',
 }
 
+export interface ColorModeType {
+  toggleColorMode: () => void;
+}
+
 interface ColorShades {
   DEFAULT: string;
   50?: string;

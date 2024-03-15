@@ -27,3 +27,9 @@ export interface IGoogleSheet {
   sig: string;
   table: ITable;
 }
+
+// todo: should to resolve issue with 'code' property and do it as strict in tis interface
+export interface IGoogleSheetError {
+  code?: string;
+  message: string;
+}

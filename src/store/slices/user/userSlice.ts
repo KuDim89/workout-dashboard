@@ -6,11 +6,14 @@ interface IUser {
 }
 
 interface IUserState {
-  userData: IUser | null;
+  userData: IUser;
 }
 
 const initialState: IUserState = {
-  userData: null,
+  userData: {
+    email: '',
+    password: '',
+  },
 };
 
 const userSlice = createSlice({
@@ -20,8 +23,11 @@ const userSlice = createSlice({
     saveUser: (state: IUserState, action: PayloadAction<IUser>) => {
       state.userData = action.payload;
     },
+    removeUser: (state: IUserState) => {
+      state.userData = { email: '', password: '' };
+    },
   },
 });
 
-export const { saveUser } = userSlice.actions;
+export const { saveUser, removeUser } = userSlice.actions;
 export default userSlice.reducer;

@@ -18,10 +18,5 @@ export const useStyles = makeStyles((theme: Theme) => {
     icon: {
       marginLeft: '10px !important',
     },
-    search: {
-      '&:hover': {
-        backgroundColor: 'transparent !important',
-      },
-    },
   };
 });

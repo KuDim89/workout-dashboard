@@ -1,24 +1,20 @@
-import React, { useContext } from 'react';
-import { Box, Grid, IconButton, InputBase, useTheme } from '@mui/material';
-import {
-  DarkMode,
-  LightMode,
-  NotificationsNone,
-  Search,
-} from '@mui/icons-material';
+import React, { type FC, useContext } from 'react';
+import { Box, Grid, IconButton, useTheme } from '@mui/material';
+import { DarkMode, LightMode } from '@mui/icons-material';
 
 import { useUserCredentials } from '../../hooks/redux';
-import { ColorModeContext, getColors } from '../../theme';
+import { ColorModeContext } from '../../theme';
 import { type ColorModeType, ThemeMode } from '../../theme/interfaces';
 import { useStyles } from './styles';
+import { UserMenu } from './UserMenu/UserMenu';
 
-export const TopBar = () => {
+export const TopBar: FC = () => {
   const theme = useTheme();
   const classes = useStyles(theme);
-  const colors = getColors(theme.palette.mode as ThemeMode);
   const colorMode: ColorModeType = useContext(ColorModeContext);
   const userData = useUserCredentials();
-  const userGreeting = `Welcome, ${userData.email?.split('@')[0]}!`;
+  const userGreeting = `Welcome, ${userData.email.split('@')[0]}!`;
+  const avatarLetter = userData.email[0].toUpperCase();
 
   return (
     <Box
@@ -50,25 +46,8 @@ export const TopBar = () => {
               )}
             </IconButton>
           </Grid>
-          <Grid>
-            <IconButton className={classes.icon}>
-              <NotificationsNone />
-            </IconButton>
-          </Grid>
         </Box>
-        <Grid
-          sx={{
-            display: 'flex',
-            border: `1px solid ${colors.grey.DEFAULT}`,
-            borderRadius: '30px',
-            ml: '28px',
-          }}
-        >
-          <IconButton className={classes.search}>
-            <Search />
-          </IconButton>
-          <InputBase sx={{ py: '12px', px: '18px' }} placeholder="Search" />
-        </Grid>
+        <UserMenu abbreviation={avatarLetter} />
       </Box>
     </Box>
   );

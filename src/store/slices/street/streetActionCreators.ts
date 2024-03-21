@@ -1,8 +1,9 @@
 import { type AxiosError } from 'axios';
 
 import { type AppDispatch } from '../../index';
-import GoogleSheetsService from '../../../services/googleSheets/googleSheets.service';
-import { SheetTitleType } from '../../../services/googleSheets/constants';
+import GoogleSheetsService, {
+  SheetTitleType,
+} from '../../../services/googleSheets/googleSheets.service';
 import { type ITableRow } from '../../../models/IGoogleSheet';
 import {
   streetFetching,
@@ -17,12 +18,13 @@ export const fetchStreet = () => async (dispatch: AppDispatch) => {
       SheetTitleType.Street,
     )) as ITableRow[];
     dispatch(streetFetchingSuccess(response));
-    // todo: should define types for 'event'
   } catch (e) {
+    const sheetError = e as AxiosError;
+
     dispatch(
       streetFetchingError({
-        code: (e as AxiosError).code,
-        message: (e as AxiosError).message,
+        code: sheetError?.code != null ? sheetError.code : '403',
+        message: sheetError.message,
       }),
     );
   }

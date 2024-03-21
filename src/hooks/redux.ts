@@ -20,8 +20,63 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 } */
 
 export const useUserCredentials = () => {
-  const email = useAppSelector((state) => state.user.userData?.email);
-  const password = useAppSelector((state) => state.user.userData?.password);
+  const { email, password, loginTime } = useAppSelector((state) => state.user);
+  return useMemo(
+    () => ({ email, password, loginTime }),
+    [email, password, loginTime],
+  );
+};
 
-  return useMemo(() => ({ email, password }), [email, password]);
+export const useUserLocation = () => {
+  const { latitude, longitude, error } = useAppSelector(
+    (state) => state.user.location,
+  );
+  return useMemo(
+    () => ({ latitude, longitude, error }),
+    [latitude, longitude, error],
+  );
+};
+
+export const useUserAddress = () => {
+  const {
+    country,
+    city,
+    countryCode,
+    village,
+    county,
+    state,
+    stateDistrict,
+    district,
+    municipality,
+    fullAddress,
+    error,
+  } = useAppSelector((state) => state.user.address);
+  return useMemo(
+    () => ({
+      country,
+      city,
+      countryCode,
+      village,
+      county,
+      state,
+      stateDistrict,
+      district,
+      municipality,
+      fullAddress,
+      error,
+    }),
+    [
+      country,
+      city,
+      countryCode,
+      village,
+      county,
+      state,
+      stateDistrict,
+      district,
+      municipality,
+      fullAddress,
+      error,
+    ],
+  );
 };

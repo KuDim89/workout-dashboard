@@ -1,10 +1,14 @@
 import axios from 'axios';
 import _ from 'lodash';
 import { type IGoogleSheet } from '../../models/IGoogleSheet';
-import { type SheetTitleType } from './constants';
+
+export enum SheetTitleType {
+  Street = 'street',
+  Home = 'home',
+}
 
 class GoogleSheetsService {
-  private readonly baseUrl = `https://docs.google.com/spreadsheets/d/${process.env.REACT_APP_SHEET_ID_KEY}/gviz/tq?sheet=`;
+  private readonly baseUrl = `${process.env.REACT_APP_GOOGLESHEETS_URL}/d/${process.env.REACT_APP_SHEET_ID_KEY}/gviz/tq?sheet=`;
 
   async getDataFromGoogleSheet(sheetTitle: SheetTitleType) {
     const formattedTitle = _.startCase(_.camelCase(sheetTitle)).trim();

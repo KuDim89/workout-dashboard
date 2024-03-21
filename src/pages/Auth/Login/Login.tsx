@@ -1,37 +1,36 @@
 import React, { type FC } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { type FormikHelpers, useFormik } from 'formik';
+import dayjs from 'dayjs';
 import { Button, TextField, Typography } from '@mui/material';
 
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
-import { saveUser } from '../../../store/slices/user/userSlice';
+import { useAppDispatch, useUserCredentials } from '../../../hooks/redux';
+import {
+  saveLoginTime,
+  saveUserCredentials,
+} from '../../../store/slices/user/userSlice';
+import { fetchLocation } from '../../../store/slices/user/userActionCreators';
 import { RouteNames } from '../../routeNames';
 import { validationSchema } from './validationSchema';
 import { useStyles } from './styles';
 import { PasswordInput } from '../PasswordInput';
-
-interface IUserLoginData {
-  email: string;
-  password: string;
-}
-
-const initialValues: IUserLoginData = {
-  email: '',
-  password: '',
-};
+import { initialValues } from './constants';
+import { type IUserCredentials } from '../../../models/IUser';
 
 export const Login: FC = () => {
   const dispatch = useAppDispatch();
-  const userData = useAppSelector((state) => state.user.userData);
+  const { email, password } = useUserCredentials();
   const classes = useStyles();
   const navigate = useNavigate();
 
   const handleSubmit = (
-    values: IUserLoginData,
-    actions: FormikHelpers<IUserLoginData>,
+    values: IUserCredentials,
+    actions: FormikHelpers<IUserCredentials>,
   ) => {
     if (formik.isValid) {
-      dispatch(saveUser(values));
+      dispatch(saveUserCredentials(values));
+      dispatch(saveLoginTime(dayjs().toISOString()));
+      void dispatch(fetchLocation());
       actions.resetForm();
       navigate('/');
     }
@@ -64,7 +63,7 @@ export const Login: FC = () => {
         InputLabelProps={{
           shrink: true,
         }}
-        value={formik.values.email ?? userData?.email}
+        value={formik.values.email ?? email}
         error={Boolean(formik.errors.email) && Boolean(formik.touched.email)}
         onChange={formik.handleChange}
         helperText={
@@ -74,7 +73,7 @@ export const Login: FC = () => {
         }
       />
       <PasswordInput
-        value={formik.values.password ?? userData?.password}
+        value={formik.values.password ?? password}
         touched={formik.touched.password}
         errors={formik.errors.password}
         handleChange={formik.handleChange}

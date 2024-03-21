@@ -1,13 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import {
-  type IGoogleSheetError,
-  type ITableRow,
-} from '../../../models/IGoogleSheet';
+import { type ITableRow } from '../../../models/IGoogleSheet';
+import { type IError } from '../../../models/IError';
 
 interface IStreetState {
   status: string;
   streetData: ITableRow[];
-  error: IGoogleSheetError | null;
+  error: IError | null;
 }
 
 const initialState: IStreetState = {
@@ -32,7 +30,7 @@ const streetSlice = createSlice({
     },
     streetFetchingError: (
       state: IStreetState,
-      action: PayloadAction<IGoogleSheetError>,
+      action: PayloadAction<IError>,
     ) => {
       state.status = 'failed';
       state.error = action.payload;

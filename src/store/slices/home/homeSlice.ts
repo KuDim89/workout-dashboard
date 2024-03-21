@@ -1,14 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  type IGoogleSheetError,
-  type ITableRow,
-} from '../../../models/IGoogleSheet';
+import { type ITableRow } from '../../../models/IGoogleSheet';
+import { type IError } from '../../../models/IError';
 import { fetchHomeData } from './homeActionCreators';
 
 interface IHomeState {
   status: string;
   homeData: ITableRow[];
-  error: IGoogleSheetError | null;
+  error: IError | null;
 }
 
 const initialState: IHomeState = {
@@ -32,7 +30,7 @@ const homeSlice = createSlice({
       })
       .addCase(fetchHomeData.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.payload as IGoogleSheetError;
+        state.error = action.payload as IError;
       });
   },
 });

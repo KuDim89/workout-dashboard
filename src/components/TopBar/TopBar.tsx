@@ -7,6 +7,7 @@ import { ColorModeContext } from '../../theme';
 import { type ColorModeType, ThemeMode } from '../../theme/interfaces';
 import { useStyles } from './styles';
 import { UserMenu } from './UserMenu/UserMenu';
+import { Date } from './Date/Date';
 
 export const TopBar: FC = () => {
   const theme = useTheme();
@@ -27,8 +28,8 @@ export const TopBar: FC = () => {
       }}
     >
       <Grid>
-        <>{userGreeting}</>
-        <p>123</p>
+        <div>{userGreeting}</div>
+        <Date />
       </Grid>
       <Box display="flex">
         <Box

@@ -9,6 +9,9 @@ export const useStyles = makeStyles((theme: Theme) => {
 
   return {
     root: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      padding: theme.spacing(2, 4),
       position: 'static',
       background: `${colors.primary.DEFAULT}`,
       color: `${colors.grey[300]}`,

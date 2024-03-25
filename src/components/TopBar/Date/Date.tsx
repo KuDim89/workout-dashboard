@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
+import { Box } from '@mui/material';
+
 import {
   useAppDispatch,
   useUserAddress,
@@ -33,9 +35,11 @@ export const Date = () => {
   }, []);
 
   return (
-    <div>
-      {date.format(DATE_FORMAT)} | {date.format(TIME_FORMAT)}{' '}
+    <Box display="flex">
+      <Box sx={{ width: '172px', mr: 1 }}>
+        {date.format(DATE_FORMAT)} | {date.format(TIME_FORMAT)}
+      </Box>
       {village ?? city ?? country}
-    </div>
+    </Box>
   );
 };

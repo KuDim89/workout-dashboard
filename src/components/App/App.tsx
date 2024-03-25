@@ -15,7 +15,6 @@ import { TopBar } from '../TopBar';
 export const App: FC = () => {
   const dispatch = useAppDispatch();
   const [theme, colorMode] = useMode();
-  // const { homeData, isLoading, error } = useAppSelector((state) => state.home);
 
   useEffect(() => {
     void dispatch(fetchHomeData());

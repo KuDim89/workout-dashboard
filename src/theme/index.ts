@@ -27,7 +27,6 @@ export const themeSettings = (mode: ThemeMode) => {
       fontWeight: 500,
       fontWeightBold: 700,
       fontWeightRegular: 400,
-      color: colors.grey[400],
       h1: {
         fontFamily: ['Poppins', 'sans-serif'].join(','),
         fontSize: 28,

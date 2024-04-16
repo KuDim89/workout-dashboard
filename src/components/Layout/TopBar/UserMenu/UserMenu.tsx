@@ -10,8 +10,8 @@ import {
 } from '@mui/material';
 import { Settings, PowerSettingsNew } from '@mui/icons-material';
 
-import { removeUser } from '../../../store/slices/user/userSlice';
-import { useAppDispatch } from '../../../hooks/redux';
+import { removeUser } from '../../../../store/slices/user/userSlice';
+import { useAppDispatch } from '../../../../hooks/redux';
 import { useStyles } from './styles';
 
 interface IProps {

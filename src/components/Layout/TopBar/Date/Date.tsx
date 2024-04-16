@@ -6,8 +6,8 @@ import {
   useAppDispatch,
   useUserAddress,
   useUserLocation,
-} from '../../../hooks/redux';
-import { fetchUserAddress } from '../../../store/slices/user/userActionCreators';
+} from '../../../../hooks/redux';
+import { fetchUserAddress } from '../../../../store/slices/user/userActionCreators';
 
 const DATE_FORMAT = 'D MMMM YYYY';
 const TIME_FORMAT = 'HH:mm:ss';
@@ -36,10 +36,10 @@ export const Date = () => {
 
   return (
     <Box display="flex">
-      <Box sx={{ width: '172px', mr: 1 }}>
+      <Box>{village ?? city ?? country}</Box>
+      <Box ml={1}>
         {date.format(DATE_FORMAT)} | {date.format(TIME_FORMAT)}
       </Box>
-      {village ?? city ?? country}
     </Box>
   );
 };

@@ -2,9 +2,9 @@ import React, { type FC, useContext, useEffect, useState } from 'react';
 import { Box, Grid, IconButton, useTheme, Alert } from '@mui/material';
 import { DarkMode, LightMode } from '@mui/icons-material';
 
-import { useUserCredentials, useUserLocation } from '../../hooks/redux';
-import { ColorModeContext, getColors } from '../../theme';
-import { type ColorModeType, ThemeMode } from '../../theme/interfaces';
+import { useUserCredentials, useUserLocation } from '../../../hooks/redux';
+import { ColorModeContext, getColors } from '../../../theme';
+import { type ColorModeType, ThemeMode } from '../../../theme/interfaces';
 import { useStyles } from './styles';
 import { UserMenu } from './UserMenu/UserMenu';
 import { Date } from './Date/Date';
@@ -28,7 +28,7 @@ export const TopBar: FC = () => {
     <>
       <Box className={classes.root}>
         <Grid>
-          <div>{userGreeting}</div>
+          <Box sx={{ fontWeight: 600, fontSize: '16px' }}>{userGreeting}</Box>
           <Date />
         </Grid>
         <Box display="flex">

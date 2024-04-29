@@ -1,7 +1,7 @@
 import { makeStyles } from '@mui/styles';
 import { type Theme } from '@mui/material/styles';
-import { getColors } from '../../../theme';
-import { type ThemeMode } from '../../../theme/interfaces';
+import { getColors } from '../../theme';
+import { type ThemeMode } from '../../theme/interfaces';
 
 export const useStyles = makeStyles((theme: Theme) => {
   const colors = getColors(theme.palette.mode as ThemeMode);
@@ -19,8 +19,7 @@ export const useStyles = makeStyles((theme: Theme) => {
     logoWrapper: {
       display: 'flex',
       alignItems: 'center',
-      gap: '10px',
-      padding: '8px',
+      gap: theme.spacing(1),
       cursor: 'pointer',
     },
     listItem: {

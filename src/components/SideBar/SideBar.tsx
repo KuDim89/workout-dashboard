@@ -14,11 +14,11 @@ import {
 } from '@mui/material';
 import { HomeOutlined, ChevronLeftOutlined } from '@mui/icons-material';
 
-import { FlexBetween } from './FlexBetween';
-import { getColors } from '../../../theme';
-import { type ThemeMode } from '../../../theme/interfaces';
+import { FlexBetween } from '../FlexBetween';
+import { getColors } from '../../theme';
+import { ThemeMode } from '../../theme/interfaces';
 import { useStyles } from './styles';
-import { Logo } from '../../../assets/icons/index';
+import { Logo } from '../../assets/icons';
 
 interface INavMenuProps {
   id: number;
@@ -43,18 +43,12 @@ const navMenu: INavMenuProps[] = [
 ];
 
 interface IProps {
-  isNotMobile: boolean;
   drawerWidth: string;
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
 }
 
-export const SideBar: FC<IProps> = ({
-  isNotMobile,
-  drawerWidth,
-  isOpen,
-  setIsOpen,
-}) => {
+export const SideBar: FC<IProps> = ({ drawerWidth, isOpen, setIsOpen }) => {
   const location = useLocation();
   const theme = useTheme();
   const classes = useStyles(theme);
@@ -94,43 +88,42 @@ export const SideBar: FC<IProps> = ({
           sx={{
             width: drawerWidth,
             '& .MuiDrawer-paper': {
-              backgroundColor: `${colors.primary.DEFAULT}`,
               width: drawerWidth,
+              backgroundColor: `${colors.primary.DEFAULT}`,
               borderRight: `1px solid ${colors.borderColor}`,
             },
           }}
         >
-          <Box width="100%">
-            <Box>
-              <FlexBetween>
-                <Link to="/" className={classes.link}>
-                  <Box className={classes.logoWrapper}>
-                    <Logo width={70} />
-                    <Typography
-                      variant="h1"
-                      color={
-                        theme.palette.mode === 'dark'
+          <Box sx={{ padding: theme.spacing(1.3) }}>
+            <FlexBetween>
+              <Link to="/" className={classes.link}>
+                <Box className={classes.logoWrapper}>
+                  <Logo width={70} />
+                  <Typography
+                    variant="h1"
+                    sx={{
+                      color: `${
+                        theme.palette.mode === ThemeMode.Dark
                           ? colors.white.DEFAULT
                           : colors.black.DEFAULT
-                      }
-                    >
-                      WD
-                    </Typography>
-                  </Box>
-                </Link>
-                {!isNotMobile && (
-                  <IconButton
-                    onClick={() => {
-                      setIsOpen(!isOpen);
+                      } !important`,
                     }}
                   >
-                    <ChevronLeftOutlined />
-                  </IconButton>
-                )}
-              </FlexBetween>
-            </Box>
-            <List>{renderMenu}</List>
+                    WD
+                  </Typography>
+                </Box>
+              </Link>
+
+              <IconButton
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+              >
+                <ChevronLeftOutlined />
+              </IconButton>
+            </FlexBetween>
           </Box>
+          <List>{renderMenu}</List>
         </Drawer>
       )}
     </Box>

@@ -6,7 +6,7 @@ import GoogleSheetsService, {
 
 export const fetchHomeData = createAsyncThunk(
   'home/fetchHomeData',
-  async (_, thunkAPI) => {
+  async (_, { rejectWithValue }) => {
     try {
       return await GoogleSheetsService.getDataFromGoogleSheet(
         SheetTitleType.Home,
@@ -14,7 +14,7 @@ export const fetchHomeData = createAsyncThunk(
     } catch (e) {
       const sheetError = e as AxiosError;
 
-      return thunkAPI.rejectWithValue({
+      return rejectWithValue({
         code: sheetError.code,
         message: sheetError.message,
       });

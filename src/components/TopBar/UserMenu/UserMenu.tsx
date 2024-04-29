@@ -10,8 +10,8 @@ import {
 } from '@mui/material';
 import { Settings, PowerSettingsNew } from '@mui/icons-material';
 
-import { removeUser } from '../../../../store/slices/user/userSlice';
-import { useAppDispatch } from '../../../../hooks/redux';
+import { removeUser } from '../../../store/slices/user/userSlice';
+import { useAppDispatch } from '../../../hooks/redux';
 import { useStyles } from './styles';
 
 interface IProps {
@@ -39,12 +39,7 @@ export const UserMenu: FC<IProps> = ({ abbreviation }) => {
   };
 
   return (
-    <Stack
-      sx={{
-        justifyContent: 'center',
-        marginLeft: theme.spacing(2),
-      }}
-    >
+    <Stack className={classes.root}>
       <Avatar
         alt={abbreviation}
         className={classes.avatar}
@@ -56,7 +51,7 @@ export const UserMenu: FC<IProps> = ({ abbreviation }) => {
       <Menu
         anchorEl={anchorElUser}
         anchorOrigin={{
-          vertical: 'top',
+          vertical: 'bottom',
           horizontal: 'right',
         }}
         keepMounted
@@ -64,7 +59,7 @@ export const UserMenu: FC<IProps> = ({ abbreviation }) => {
           vertical: 'top',
           horizontal: 'right',
         }}
-        sx={{ top: '50px' }}
+        className={classes.userMenu}
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
       >

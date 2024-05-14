@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { type FC, useEffect } from 'react';
 import { Typography } from '@mui/material';
 import {
   useAppDispatch,
@@ -7,7 +7,11 @@ import {
 } from '../../../hooks/redux';
 import { fetchUserAddress } from '../../../store/slices/user/userActionCreators';
 
-export const Location = () => {
+interface IProps {
+  isFullInformation: boolean;
+}
+
+export const Location: FC<IProps> = ({ isFullInformation }) => {
   const dispatch = useAppDispatch();
   const { latitude, longitude } = useUserLocation();
   const { country, city, village } = useUserAddress();
@@ -18,5 +22,11 @@ export const Location = () => {
     }
   }, [latitude, longitude]);
 
-  return <Typography>{village ?? city ?? country}</Typography>;
+  return (
+    <>
+      {isFullInformation && (
+        <Typography mr={1}>{village ?? city ?? country}</Typography>
+      )}
+    </>
+  );
 };

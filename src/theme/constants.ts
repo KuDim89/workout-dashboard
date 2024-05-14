@@ -18,7 +18,7 @@ export const darkModeColors: ICustomColors = {
     50: '#858585',
     100: '#7B7B7B', // used
     200: '#666666',
-    300: '#525252',
+    300: '#525252', // used
     400: '#3D3D3D', // used
     500: '#0D0D0D', // used
   },
@@ -60,16 +60,17 @@ export const darkModeColors: ICustomColors = {
     100: '#F7F7F7',
     200: '#FAF9F6',
   },
-  borderColor: '#3C3C3C', // used
   contrast: {
     DEFAULT: '#292929',
   },
+  backgroundColor: '#121212', // used
+  borderColor: '#3C3C3C', // used
 };
 
 export const lightModeColors: ICustomColors = {
   primary: {
-    DEFAULT: '#ffffff', // used
-    100: '#5C5C5C',
+    DEFAULT: '#FFFFFF', // used
+    100: '#F7F7F7', // used
     200: '#525252',
     300: '#3D3D3D', // used
     400: '#232323',
@@ -84,7 +85,7 @@ export const lightModeColors: ICustomColors = {
     50: '#000000',
     100: '#0D0D0D', // used
     200: '#292929',
-    300: '#3D3D3D',
+    300: '#3D3D3D', // used
     400: '#858585', // used
     500: '#666666',
     600: '#7B7B7B', // used
@@ -127,8 +128,9 @@ export const lightModeColors: ICustomColors = {
     100: '#F7F7F7',
     200: '#FAF9F6',
   },
-  borderColor: '#3C3C3C',
   contrast: {
     DEFAULT: '#FAF9F6',
   },
+  borderColor: '#3C3C3C', // used
+  backgroundColor: '#f2662714', // used
 };

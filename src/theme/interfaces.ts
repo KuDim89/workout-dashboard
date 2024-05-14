@@ -27,6 +27,7 @@ interface ColorShades {
 }
 
 export interface ICustomColors {
+  backgroundColor: string;
   primary: ColorShades;
   secondary: ColorShades;
   grey: ColorShades;

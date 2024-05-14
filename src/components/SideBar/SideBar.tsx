@@ -12,13 +12,19 @@ import {
   ListItemButton,
   ListItemIcon,
 } from '@mui/material';
-import { HomeOutlined, ChevronLeftOutlined } from '@mui/icons-material';
+import {
+  HomeOutlined,
+  ChevronLeftOutlined,
+  LightModeOutlined,
+  InfoOutlined,
+} from '@mui/icons-material';
 
 import { FlexBetween } from '../FlexBetween';
 import { getColors } from '../../theme';
 import { ThemeMode } from '../../theme/interfaces';
 import { useStyles } from './styles';
 import { Logo } from '../../assets/icons';
+import { RouteNames } from '../../pages/routeNames';
 
 interface INavMenuProps {
   id: number;
@@ -30,15 +36,21 @@ interface INavMenuProps {
 const navMenu: INavMenuProps[] = [
   {
     id: 1,
-    name: 'Home',
-    icon: <HomeOutlined />,
-    patch: '/',
+    name: 'Info',
+    icon: <InfoOutlined />,
+    patch: RouteNames.INFO,
   },
   {
     id: 2,
-    name: 'Login',
+    name: 'Home',
     icon: <HomeOutlined />,
-    patch: '/login',
+    patch: RouteNames.HOME,
+  },
+  {
+    id: 3,
+    name: 'Street',
+    icon: <LightModeOutlined />,
+    patch: RouteNames.STREET,
   },
 ];
 

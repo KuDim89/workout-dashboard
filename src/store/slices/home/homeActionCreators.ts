@@ -9,7 +9,7 @@ export const fetchHomeData = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       return await GoogleSheetsService.getDataFromGoogleSheet(
-        SheetTitleType.Home,
+        SheetTitleType.HOME,
       );
     } catch (e) {
       const sheetError = e as AxiosError;

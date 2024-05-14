@@ -1,13 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import { userSlice } from './slices/user';
-import { streetSlice } from './slices/street';
-import { homeSlice } from './slices/home';
+import { googleSheetsSlice } from './slices/googleSheetsAssets';
 
 const rootReducer = combineReducers({
   user: userSlice,
-  street: streetSlice,
-  home: homeSlice,
+  googleSheets: googleSheetsSlice,
 });
 
 export const setupStore = () => {

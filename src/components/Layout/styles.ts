@@ -11,6 +11,5 @@ export const useStyles = makeStyles({
     display: 'flex',
     flexGrow: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
   },
 });

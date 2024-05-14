@@ -6,8 +6,9 @@ import { RouteNames } from '../../pages/routeNames';
 import { ColorModeContext } from '../../theme';
 import { useMode } from '../../theme/hooks/useMode';
 import { AuthRoot } from '../../pages/Auth';
-import { Home } from '../../pages/Home';
+import { Dashboard } from '../../pages/Dashboard';
 import { Layout } from '../Layout';
+import { SheetTitleType } from '../../services/googleSheets/googleSheets.service';
 
 export const App: FC = () => {
   const [theme, colorMode] = useMode();
@@ -17,14 +18,25 @@ export const App: FC = () => {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div className="App">
+        <div className="App" style={{ height: '100vh' }}>
           <Routes>
             <Route path={RouteNames.LOGIN} element={<AuthRoot />} />
             <Route path={RouteNames.REGISTRATION} element={<AuthRoot />} />
 
             <Route element={<PrivateRoute />}>
               <Route element={<Layout />}>
-                <Route path={RouteNames.HOME} element={<Home />} />
+                <Route
+                  path={RouteNames.INFO}
+                  element={<div>Info Page</div>}
+                ></Route>
+                <Route
+                  path={RouteNames.HOME}
+                  element={<Dashboard type={SheetTitleType.HOME} />}
+                />
+                <Route
+                  path={RouteNames.STREET}
+                  element={<Dashboard type={SheetTitleType.STREET} />}
+                />
               </Route>
             </Route>
           </Routes>

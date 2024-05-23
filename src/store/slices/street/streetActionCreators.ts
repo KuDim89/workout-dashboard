@@ -15,7 +15,7 @@ export const fetchStreet = () => async (dispatch: AppDispatch) => {
   try {
     dispatch(streetFetching());
     const response = (await GoogleSheetsService.getDataFromGoogleSheet(
-      SheetTitleType.Street,
+      SheetTitleType.STREET,
     )) as ITableRow[];
     dispatch(streetFetchingSuccess(response));
   } catch (e) {

@@ -2,6 +2,7 @@ import React, { type FC } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { type FormikHelpers, useFormik } from 'formik';
 import dayjs from 'dayjs';
+import { useTheme } from '@mui/styles';
 import { Button, TextField, Typography } from '@mui/material';
 
 import { useAppDispatch, useUserCredentials } from '../../../hooks/redux';
@@ -20,7 +21,8 @@ import { type IUserCredentials } from '../../../models/IUser';
 export const Login: FC = () => {
   const dispatch = useAppDispatch();
   const { email, password } = useUserCredentials();
-  const classes = useStyles();
+  const theme = useTheme();
+  const classes = useStyles(theme);
   const navigate = useNavigate();
 
   const handleSubmit = (
@@ -32,7 +34,7 @@ export const Login: FC = () => {
       dispatch(saveLoginTime(dayjs().toISOString()));
       void dispatch(fetchLocation());
       actions.resetForm();
-      navigate('/');
+      navigate(RouteNames.INFO);
     }
   };
 

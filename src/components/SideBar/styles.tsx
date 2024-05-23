@@ -1,7 +1,7 @@
 import { makeStyles } from '@mui/styles';
 import { type Theme } from '@mui/material/styles';
 import { getColors } from '../../theme';
-import { type ThemeMode } from '../../theme/interfaces';
+import { ThemeMode } from '../../theme/interfaces';
 
 export const useStyles = makeStyles((theme: Theme) => {
   const colors = getColors(theme.palette.mode as ThemeMode);
@@ -33,6 +33,20 @@ export const useStyles = makeStyles((theme: Theme) => {
       '&.Mui-selected': {
         borderTop: `1px solid ${colors.orange.DEFAULT}`,
         borderBottom: `1px solid ${colors.orange.DEFAULT}`,
+        '& $pageLink': {
+          color: `${
+            theme.palette.mode === ThemeMode.Dark
+              ? colors.white.DEFAULT
+              : colors.black.DEFAULT
+          }`,
+        },
+        '& svg': {
+          color: `${
+            theme.palette.mode === ThemeMode.Dark
+              ? colors.white.DEFAULT
+              : colors.black.DEFAULT
+          }`,
+        },
         '&:hover': {
           backgroundColor: `${colors.orange.DEFAULT} !important`,
         },

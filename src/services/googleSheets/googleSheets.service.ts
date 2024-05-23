@@ -1,10 +1,11 @@
 import axios from 'axios';
 import _ from 'lodash';
 import { type IGoogleSheet } from '../../models/IGoogleSheet';
+import { transformGoogleSheetsData } from '../../utils/responseData/transformData';
 
 export enum SheetTitleType {
-  Street = 'street',
-  Home = 'home',
+  STREET = 'street',
+  HOME = 'home',
 }
 
 class GoogleSheetsService {
@@ -21,7 +22,7 @@ class GoogleSheetsService {
         const formattedData: IGoogleSheet = JSON.parse(
           response.data.substring(47).slice(0, -2),
         );
-        return formattedData.table.rows;
+        return transformGoogleSheetsData(formattedData.table.rows);
       }
     } catch (e) {
       return e;

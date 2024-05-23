@@ -8,6 +8,7 @@ import {
   useTheme,
   Alert,
   Typography,
+  useMediaQuery,
 } from '@mui/material';
 import { DarkMode, LightMode, MenuOutlined } from '@mui/icons-material';
 
@@ -35,7 +36,10 @@ export const TopBar: FC<IProps> = ({ isOpen, setIsOpen }) => {
   const { email } = useUserCredentials();
   const { error } = useUserLocation();
   const [isGeolocation, setIsGeolocation] = useState<boolean>(Boolean(error));
-  const userGreeting = `Welcome, ${email.split('@')[0]}!`;
+  const isFullInformation: boolean = useMediaQuery('(min-width: 665px)');
+  const userGreeting = isFullInformation
+    ? `Welcome, ${email.split('@')[0]}!`
+    : email.split('@')[0];
   const avatarLetter = email[0].toUpperCase();
 
   useEffect(() => {
@@ -62,7 +66,7 @@ export const TopBar: FC<IProps> = ({ isOpen, setIsOpen }) => {
                 {userGreeting}
               </Typography>
               <Box className={classes.dateWrapper}>
-                <Location />
+                <Location isFullInformation={isFullInformation} />
                 <Date />
               </Box>
             </Box>

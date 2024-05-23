@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react";
-import { createTheme } from "@mui/material";
+import { useMemo, useState } from 'react';
+import { createTheme } from '@mui/material';
 
-import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
-import { themeSettings } from "../index";
-import { LocalStorageKeys, ThemeMode } from "../interfaces";
+import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
+import { themeSettings } from '../index';
+import { LocalStorageKeys, ThemeMode } from '../interfaces';
 
 export const useMode = () => {
   const themeValue = getLocalStorage(LocalStorageKeys.ThemeMode);

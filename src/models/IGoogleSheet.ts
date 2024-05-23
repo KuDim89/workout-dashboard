@@ -6,8 +6,7 @@ interface ITableColumn {
 }
 
 interface ITableCell {
-  v: number;
-  f: string;
+  v: string;
 }
 
 export interface ITableRow {
@@ -26,4 +25,10 @@ export interface IGoogleSheet {
   status: string;
   sig: string;
   table: ITable;
+}
+
+export enum LoadingDataStatus {
+  LOADING = 'loading',
+  SUCCEEDED = 'succeeded',
+  FAILED = 'failed',
 }

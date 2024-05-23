@@ -19,7 +19,7 @@ export const Date = () => {
   }, []);
 
   return (
-    <Box ml={1}>
+    <Box>
       {date.format(DATE_FORMAT)} | {date.format(TIME_FORMAT)}
     </Box>
   );

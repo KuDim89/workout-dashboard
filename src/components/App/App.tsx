@@ -6,7 +6,7 @@ import { RouteNames } from '../../pages/routeNames';
 import { ColorModeContext } from '../../theme';
 import { useMode } from '../../theme/hooks/useMode';
 import { AuthRoot } from '../../pages/Auth';
-import { Dashboard } from '../../pages/Dashboard';
+import { Dashboard } from '../Dashboard';
 import { Layout } from '../Layout';
 import { SheetTitleType } from '../../services/googleSheets/googleSheets.service';
 
